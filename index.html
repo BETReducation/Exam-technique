@@ -687,71 +687,8 @@
         <!-- Learn Skills Section -->
         <div class="content-panel" id="learnSection">
             <h2>Exam Skills for Economics</h2>
-            
-            <div class="skill-card">
-                <span class="badge beginner">Beginner</span>
-                <h3>Understanding Command Words</h3>
-                <p>Command words tell you how to answer the question. Each requires a different approach:</p>
-                <ul>
-                    <li><strong>Define:</strong> Give a precise meaning (1-2 marks)</li>
-                    <li><strong>Explain:</strong> Show cause and effect with reasoning (4-6 marks)</li>
-                    <li><strong>Analyse:</strong> Break down and examine in detail, showing links (8-10 marks)</li>
-                    <li><strong>Evaluate:</strong> Weigh up strengths and weaknesses, make a judgment (12-25 marks)</li>
-                </ul>
-            </div>
-
-            <div class="skill-card">
-                <span class="badge intermediate">Intermediate</span>
-                <h3>Using Economic Diagrams</h3>
-                <p>Diagrams are essential for higher marks in Economics:</p>
-                <ul>
-                    <li>Always label axes clearly (Price, Quantity)</li>
-                    <li>Label curves (S for supply, D for demand, etc.)</li>
-                    <li>Show shifts with arrows and explain the direction</li>
-                    <li>Mark equilibrium points clearly (E1, E2)</li>
-                    <li>Reference your diagram in your written answer</li>
-                </ul>
-            </div>
-
-            <div class="skill-card">
-                <span class="badge intermediate">Intermediate</span>
-                <h3>Chain of Reasoning</h3>
-                <p>Build arguments step by step:</p>
-                <ul>
-                    <li>Start with the economic concept or theory</li>
-                    <li>Explain the mechanism (how it works)</li>
-                    <li>Show the impact on different stakeholders</li>
-                    <li>Consider short-term vs long-term effects</li>
-                    <li>Link back to the question context</li>
-                </ul>
-            </div>
-
-            <div class="skill-card">
-                <span class="badge advanced">Advanced</span>
-                <h3>Evaluation Techniques</h3>
-                <p>For high-level evaluation questions (20-25 marks):</p>
-                <ul>
-                    <li>Use "however" to present counter-arguments</li>
-                    <li>Consider time periods (short-run vs long-run)</li>
-                    <li>Discuss assumptions and their validity</li>
-                    <li>Evaluate using different economic perspectives</li>
-                    <li>Consider context: developed vs developing economies</li>
-                    <li>Reach a supported judgment in your conclusion</li>
-                </ul>
-            </div>
-
-            <div class="skill-card">
-                <span class="badge advanced">Advanced</span>
-                <h3>Using Real-World Examples</h3>
-                <p>Examples strengthen your answers significantly:</p>
-                <ul>
-                    <li>Current events (last 2-3 years are best)</li>
-                    <li>Specific countries or companies</li>
-                    <li>Statistical evidence (with approximate figures)</li>
-                    <li>Historical comparisons where relevant</li>
-                    <li>Always link examples back to theory</li>
-                </ul>
-            </div>
+            <!-- Content populated dynamically from content.js -->
+            <div id="learnSkillsContainer"></div>
         </div>
 
         <!-- Practice Section -->
@@ -1090,6 +1027,185 @@
         };
         
         // ============================================
+        // CONTENT POPULATION FROM content.js
+        // ============================================
+        
+        // Populate Learn Skills section
+        function populateLearnSkills() {
+            const container = document.getElementById('learnSkillsContainer');
+            container.innerHTML = ''; // Clear existing content
+            
+            appContent.learnSkills.forEach(skill => {
+                const skillCard = document.createElement('div');
+                skillCard.className = 'skill-card';
+                
+                const badgeClass = skill.level;
+                const pointsList = skill.points.map(point => `<li>${point}</li>`).join('');
+                
+                skillCard.innerHTML = `
+                    <span class="badge ${badgeClass}">${skill.level.charAt(0).toUpperCase() + skill.level.slice(1)}</span>
+                    <h3>${skill.title}</h3>
+                    <p>${skill.description}</p>
+                    <ul>${pointsList}</ul>
+                `;
+                
+                container.appendChild(skillCard);
+                
+                // Observe for animations
+                observer.observe(skillCard);
+            });
+        }
+        
+        // Populate Practice Questions
+        function populatePracticeQuestions() {
+            const container = document.getElementById('practiceQuestionsContainer');
+            container.innerHTML = '';
+            
+            appContent.practiceQuestions.forEach(q => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'practice-question';
+                questionDiv.innerHTML = `
+                    <div class="question-header">
+                        <h3>Question ${q.id}: ${q.topic}</h3>
+                        <span class="question-marks">${q.marks} marks</span>
+                    </div>
+                    <div class="question-text">
+                        <strong>${q.question}</strong>
+                        <br><br>
+                        <em>Tip: ${q.tip}</em>
+                    </div>
+                    <textarea class="answer-area" placeholder="Type your answer here..."></textarea>
+                    <button class="button" onclick="submitAnswer(${q.id})">Submit Answer</button>
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+        
+        // Populate Quiz Questions
+        function populateQuizQuestions() {
+            const container = document.getElementById('quizQuestionsContainer');
+            container.innerHTML = '';
+            
+            appContent.quizQuestions.forEach(quiz => {
+                const quizDiv = document.createElement('div');
+                quizDiv.className = 'practice-question';
+                
+                const optionsHTML = quiz.options.map((option, index) => 
+                    `<div class="quiz-option" onclick="selectOption(this, ${quiz.id}, ${index})">${String.fromCharCode(65 + index)}) ${option}</div>`
+                ).join('');
+                
+                quizDiv.innerHTML = `
+                    <div class="question-header">
+                        <h3>Quick Test: Command Words</h3>
+                        <span class="question-marks">1 mark</span>
+                    </div>
+                    <div class="question-text">
+                        <strong>${quiz.question}</strong>
+                    </div>
+                    ${optionsHTML}
+                    <button class="button" onclick="checkAnswer(${quiz.id}, ${quiz.correctAnswer}, '${quiz.explanation}')">Check Answer</button>
+                `;
+                container.appendChild(quizDiv);
+            });
+        }
+        
+        // Populate Progress Stats
+        function populateProgressStats() {
+            const stats = appContent.progressStats;
+            document.getElementById('progressOverall').textContent = stats.overall + '%';
+            document.getElementById('progressQuestions').textContent = stats.questionsCompleted;
+            document.getElementById('progressSkills').textContent = stats.skillsMastered;
+            document.getElementById('progressTests').textContent = stats.practiceTests;
+        }
+        
+        // Populate Topic Progress
+        function populateTopicProgress() {
+            const container = document.getElementById('topicProgressContainer');
+            container.innerHTML = '';
+            
+            appContent.topicProgress.forEach(topic => {
+                const topicHTML = `
+                    <p style="margin-bottom: 15px;"><strong>${topic.topic}:</strong> ${topic.percentage}% Complete</p>
+                    <div style="background: #e0e0e0; height: 10px; border-radius: 5px; overflow: hidden; margin-bottom: 20px;">
+                        <div style="background: linear-gradient(135deg, #5eb3b7 0%, #7ec8cc 50%, #a8dde0 100%); width: ${topic.percentage}%; height: 100%;"></div>
+                    </div>
+                `;
+                container.innerHTML += topicHTML;
+            });
+        }
+        
+        // Populate Recent Activity
+        function populateRecentActivity() {
+            const container = document.getElementById('recentActivityContainer');
+            const activityList = appContent.recentActivity.map(item => `<li>${item}</li>`).join('');
+            container.innerHTML = `<ul>${activityList}</ul>`;
+        }
+        
+        // Populate Recommendations
+        function populateRecommendations() {
+            const container = document.getElementById('recommendationsContainer');
+            const recList = appContent.recommendations.map(item => `<li>${item}</li>`).join('');
+            container.innerHTML = `<ul>${recList}</ul>`;
+        }
+        
+        // Populate Discussion Topics
+        function populateDiscussionTopics() {
+            const container = document.getElementById('discussionTopicsContainer');
+            container.innerHTML = '';
+            
+            appContent.discussionTopics.forEach(topic => {
+                const topicDiv = document.createElement('div');
+                topicDiv.style.cssText = 'cursor: pointer; padding: 12px; background: white; border-radius: 8px; margin: 10px 0;';
+                topicDiv.onclick = () => openChat('topic' + topic.id);
+                topicDiv.innerHTML = `
+                    <strong>${topic.title}</strong>
+                    <p style="font-size: 14px; color: #666; margin-top: 5px;">${topic.students} students | ${topic.comments} comments | Last activity: ${topic.lastActivity}</p>
+                `;
+                container.appendChild(topicDiv);
+            });
+        }
+        
+        // Populate Chat Messages
+        function populateChatMessages() {
+            const chatArea = document.getElementById('chatArea');
+            chatArea.innerHTML = '';
+            
+            appContent.chatMessages.forEach(msg => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = msg.isUser ? 'chat-message teacher' : 'chat-message';
+                messageDiv.innerHTML = `
+                    <div class="sender">${msg.sender}</div>
+                    <p>${msg.message}</p>
+                `;
+                chatArea.appendChild(messageDiv);
+            });
+        }
+        
+        // Populate Assessment Info
+        function populateAssessmentInfo() {
+            const container = document.getElementById('assessmentInfoContainer');
+            const infoList = appContent.assessmentInfo.map(item => `<li>${item}</li>`).join('');
+            container.innerHTML = `<ul>${infoList}</ul>`;
+        }
+        
+        // Initialize all content when page loads
+        function initializeContent() {
+            populateLearnSkills();
+            populatePracticeQuestions();
+            populateQuizQuestions();
+            populateProgressStats();
+            populateTopicProgress();
+            populateRecentActivity();
+            populateRecommendations();
+            populateDiscussionTopics();
+            populateChatMessages();
+            populateAssessmentInfo();
+        }
+        
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', initializeContent);
+        
+        // ============================================
         // EXISTING FUNCTIONALITY
         // ============================================
         
@@ -1147,31 +1263,59 @@
             alert('Answer submitted! AI is analyzing your response...\n\nIn the full app, you would receive:\n• Mark prediction\n• Specific feedback on your chain of reasoning\n• Suggestions for improvement\n• Links to relevant skills to practice');
         }
 
-        let selectedOption = null;
-        function selectOption(element) {
-            document.querySelectorAll('.quiz-option').forEach(opt => {
-                opt.classList.remove('selected');
-            });
+        let selectedOptions = {}; // Track selected option per quiz
+        
+        function selectOption(element, quizId, optionIndex) {
+            // Find all options for this quiz
+            const parentQuiz = element.closest('.practice-question');
+            const quizOptions = parentQuiz.querySelectorAll('.quiz-option');
+            
+            // Remove selected from all options in this quiz
+            quizOptions.forEach(opt => opt.classList.remove('selected'));
+            
+            // Add selected to clicked option
             element.classList.add('selected');
-            selectedOption = element;
+            
+            // Store the selected option
+            selectedOptions[quizId] = optionIndex;
         }
 
-        function checkAnswer() {
-            if (!selectedOption) {
+        function checkAnswer(quizId, correctAnswer, explanation) {
+            if (selectedOptions[quizId] === undefined) {
                 alert('Please select an answer first!');
                 return;
             }
             
-            const options = document.querySelectorAll('.quiz-option');
-            options[0].classList.add('incorrect');
-            options[1].classList.add('incorrect');
-            options[2].classList.add('incorrect');
-            options[3].classList.add('correct');
+            const selectedIndex = selectedOptions[quizId];
+            const isCorrect = selectedIndex === correctAnswer;
             
-            if (selectedOption === options[3]) {
-                alert('Correct! ✅\n\n"Evaluate" requires you to weigh up different points and make a judgment.');
+            // Find this quiz's options
+            const allQuizzes = document.querySelectorAll('.practice-question');
+            let currentQuiz = null;
+            allQuizzes.forEach(quiz => {
+                if (quiz.querySelector(`[onclick*="checkAnswer(${quizId}"]`)) {
+                    currentQuiz = quiz;
+                }
+            });
+            
+            if (currentQuiz) {
+                const options = currentQuiz.querySelectorAll('.quiz-option');
+                
+                // Mark all options
+                options.forEach((opt, index) => {
+                    if (index === correctAnswer) {
+                        opt.classList.add('correct');
+                    } else {
+                        opt.classList.add('incorrect');
+                    }
+                });
+            }
+            
+            if (isCorrect) {
+                alert(`Correct! ✅\n\n${explanation}`);
             } else {
-                alert('Not quite! ❌\n\nThe answer is D) Evaluate.\n\n"Evaluate" requires you to consider different viewpoints and reach a supported conclusion.');
+                const correctLetter = String.fromCharCode(65 + correctAnswer);
+                alert(`Not quite! ❌\n\nThe answer is ${correctLetter}) ${appContent.quizQuestions.find(q => q.id === quizId).options[correctAnswer]}.\n\n${explanation}`);
             }
         }
 
