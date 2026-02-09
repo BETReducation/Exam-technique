@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exam Technique Excellence - Economics</title>
     <style>
+        /* Smooth scrolling for the entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Parallax container */
+        body {
+            overflow-x: hidden;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -39,6 +48,7 @@
             background-size: cover;
             background-position: 15% center;
             position: relative;
+            background-attachment: fixed; /* Parallax effect */
         }
 
         .header-overlay {
@@ -67,6 +77,7 @@
             .header-image {
                 height: 280px;
                 background-position: 18% center;
+                background-attachment: scroll; /* Disable parallax on mobile for performance */
             }
         }
 
@@ -74,6 +85,7 @@
             .header-image {
                 height: 250px;
                 background-position: 22% center;
+                background-attachment: scroll; /* Disable parallax on mobile for performance */
             }
         }
 
@@ -85,6 +97,16 @@
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .setup-panel h2 {
@@ -127,6 +149,23 @@
             margin-bottom: 30px;
         }
         
+        /* Stagger animation for nav cards */
+        .nav-card {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .nav-card.visible {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .nav-card:nth-child(1).visible { animation-delay: 0.1s; }
+        .nav-card:nth-child(2).visible { animation-delay: 0.2s; }
+        .nav-card:nth-child(3).visible { animation-delay: 0.3s; }
+        .nav-card:nth-child(4).visible { animation-delay: 0.4s; }
+        .nav-card:nth-child(5).visible { animation-delay: 0.5s; }
+        .nav-card:nth-child(6).visible { animation-delay: 0.6s; }
+        
         @media (max-width: 1200px) {
             .nav-cards {
                 grid-template-columns: repeat(3, 1fr);
@@ -155,6 +194,8 @@
             border: 2px solid transparent;
             text-align: center;
         }
+        
+        /* Remove duplicate .nav-card rule created by animation above */
 
         .nav-card:hover {
             transform: translateY(-5px);
@@ -192,10 +233,13 @@
             padding: 40px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             display: none;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .content-panel.active {
             display: block;
+            animation: fadeInUp 0.6s ease forwards;
         }
 
         .content-panel h2 {
@@ -210,6 +254,19 @@
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 8px;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        
+        .skill-card.visible {
+            animation: fadeInLeft 0.6s ease forwards;
+        }
+        
+        @keyframes fadeInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .skill-card h3 {
@@ -485,9 +542,74 @@
             color: #1976d2;
             margin-bottom: 10px;
         }
+        
+        /* Progress indicator */
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #5eb3b7 0%, #7ec8cc 50%, #a8dde0 100%);
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+        
+        /* Scroll to top button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #5eb3b7 0%, #7ec8cc 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(94, 179, 183, 0.4);
+            z-index: 1000;
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .scroll-to-top:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(94, 179, 183, 0.6);
+        }
+        
+        /* Accessibility: Respect user's motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            
+            .header-image {
+                background-attachment: scroll;
+            }
+            
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Progress indicator -->
+    <div class="progress-indicator" id="progressIndicator"></div>
+    
+    <!-- Scroll to top button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">↑</button>
+    
     <div class="container">
         <div class="header">
             <div class="header-image">
@@ -900,6 +1022,74 @@
     </div>
 
     <script>
+        // ============================================
+        // PARALLAX & SCROLL ANIMATIONS
+        // ============================================
+        
+        // Progress indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressIndicator').style.width = scrolled + '%';
+        });
+        
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all skill cards
+        const observeElements = () => {
+            document.querySelectorAll('.skill-card').forEach(card => {
+                observer.observe(card);
+            });
+        };
+        
+        // Initial observation
+        observeElements();
+        
+        // Animate nav cards when they appear
+        const animateNavCards = () => {
+            const navCards = document.querySelectorAll('.nav-card');
+            navCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, index * 100);
+            });
+        };
+        
+        // ============================================
+        // EXISTING FUNCTIONALITY
+        // ============================================
+        
         // Check if setup is complete
         document.getElementById('level').addEventListener('change', checkSetup);
         document.getElementById('examBoard').addEventListener('change', checkSetup);
@@ -911,6 +1101,12 @@
             if (level && examBoard) {
                 document.getElementById('setupPanel').style.display = 'none';
                 document.getElementById('navCards').style.display = 'grid';
+                
+                // Trigger nav card animations
+                setTimeout(() => {
+                    animateNavCards();
+                }, 100);
+                
                 showSection('learn');
             }
         }
@@ -927,10 +1123,21 @@
             });
             
             // Show selected section
-            document.getElementById(section + 'Section').classList.add('active');
+            const targetSection = document.getElementById(section + 'Section');
+            targetSection.classList.add('active');
             
             // Highlight active nav card
             event.target.closest('.nav-card').classList.add('active');
+            
+            // Smooth scroll to section
+            setTimeout(() => {
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+            
+            // Re-observe elements for fade-in animations
+            setTimeout(() => {
+                observeElements();
+            }, 300);
         }
 
         function submitAnswer(questionNum) {
