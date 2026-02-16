@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Technique - Exam Technique Excellence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Patrick Hand', cursive;
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C61 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .page-header {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 56px;
+            font-weight: 700;
+            color: #FF6B35;
+            margin-bottom: 20px;
+        }
+
+        .page-description {
+            font-size: 22px;
+            color: #555;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Navigation back to home */
+        .back-home {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 12px 25px;
+            background: white;
+            color: #FF6B35;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .back-home:hover {
+            background: #2C3E50;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Content sections */
+        .content-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-section h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 42px;
+            color: #FF6B35;
+            margin-bottom: 25px;
+        }
+
+        /* Skill cards */
+        .skill-card {
+            background: #FFF8F0;
+            border-left: 5px solid #FF6B35;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.1);
+        }
+
+        .skill-card h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            color: #FF6B35;
+            margin-bottom: 15px;
+        }
+
+        .skill-card p {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .skill-card li {
+            font-size: 19px;
+            color: #555;
+            line-height: 1.8;
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .skill-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #FF6B35;
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        /* Badge styles */
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-family: 'Patrick Hand', cursive;
+        }
+
+        .badge.beginner {
+            background: #FFE5D9;
+            color: #C62828;
+        }
+
+        .badge.intermediate {
+            background: #FFF3E0;
+            color: #E65100;
+        }
+
+        .badge.advanced {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 42px;
+            }
+
+            .page-description {
+                font-size: 18px;
+            }
+
+            .skill-card h3 {
+                font-size: 26px;
+            }
+
+            .skill-card p, .skill-card li {
+                font-size: 17px;
+            }
+        }
+    </style>
+    
+    <script src="content.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-home">← Back to Home</a>
+
+        <div class="page-header">
+            <h1>Exam Technique</h1>
+            <p class="page-description">
+                Master the essential strategies that examiners look for in top-scoring answers. Learn how to interpret command words, structure your responses, and maximize your marks in every question. These techniques are the foundation of exam success.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Essential Skills for Exam Success</h2>
+            <div id="skillsContainer">
+                <!-- Content loaded dynamically from content.js -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load skills from content.js
+        function loadSkills() {
+            const container = document.getElementById('skillsContainer');
+            
+            if (typeof appContent !== 'undefined' && appContent.learnSkills) {
+                appContent.learnSkills.forEach(skill => {
+                    const skillCard = document.createElement('div');
+                    skillCard.className = 'skill-card';
+                    
+                    const badgeClass = skill.level;
+                    const badgeText = skill.level.charAt(0).toUpperCase() + skill.level.slice(1);
+                    
+                    const pointsList = skill.points.map(point => `<li>${point}</li>`).join('');
+                    
+                    skillCard.innerHTML = `
+                        <span class="badge ${badgeClass}">${badgeText}</span>
+                        <h3>${skill.title}</h3>
+                        <p>${skill.description}</p>
+                        <ul>${pointsList}</ul>
+                    `;
+                    
+                    container.appendChild(skillCard);
+                });
+            }
+        }
+
+        // Load content when page loads
+        document.addEventListener('DOMContentLoaded', loadSkills);
+    </script>
+</body>
+</html>

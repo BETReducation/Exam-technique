@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marking Practice - Exam Technique Excellence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Patrick Hand', cursive;
+            background: linear-gradient(135deg, #95E1D3 0%, #B0EBE0 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .back-home {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 12px 25px;
+            background: white;
+            color: #95E1D3;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        .back-home:hover {
+            background: #2C3E50;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .page-header {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .page-header h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 56px;
+            font-weight: 700;
+            color: #95E1D3;
+            margin-bottom: 20px;
+        }
+        .page-description {
+            font-size: 22px;
+            color: #555;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .content-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+        .content-section h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 42px;
+            color: #95E1D3;
+            margin-bottom: 25px;
+        }
+        .marking-exercise {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .student-answer {
+            background: #FFF9E6;
+            padding: 25px;
+            border-radius: 12px;
+            border: 3px solid #FFC107;
+        }
+        .mark-scheme {
+            background: #E8F5E9;
+            padding: 25px;
+            border-radius: 12px;
+            border: 3px solid #4CAF50;
+        }
+        .student-answer h3, .mark-scheme h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        .student-answer p, .mark-scheme p {
+            font-size: 19px;
+            line-height: 1.7;
+            color: #333;
+        }
+        .mark-scheme ul {
+            margin-top: 15px;
+            padding-left: 25px;
+        }
+        .mark-scheme li {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+        .mark-input {
+            margin-top: 20px;
+        }
+        .mark-input input {
+            padding: 12px 20px;
+            border: 3px solid #95E1D3;
+            border-radius: 8px;
+            width: 100px;
+            font-size: 20px;
+            font-family: 'Patrick Hand', cursive;
+            margin-left: 10px;
+        }
+        .submit-button {
+            background: #95E1D3;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 22px;
+            font-family: 'Caveat', cursive;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(149, 225, 211, 0.3);
+        }
+        .submit-button:hover {
+            background: #2C3E50;
+            transform: translateY(-2px);
+        }
+        .question-box {
+            background: #F0F9FF;
+            border-left: 5px solid #95E1D3;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+        .question-box h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            color: #95E1D3;
+            margin-bottom: 15px;
+        }
+        .question-box p {
+            font-size: 20px;
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            .marking-exercise { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 42px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-home">← Back to Home</a>
+        <div class="page-header">
+            <h1>Marking Practice</h1>
+            <p class="page-description">
+                Learn to think like an examiner and understand exactly what gets the marks. Practice marking real student answers, compare your marks with official mark schemes, and develop an examiner's eye for quality.
+            </p>
+        </div>
+        <div class="content-section">
+            <h2>Practice Marking Like an Examiner</h2>
+            <div class="question-box">
+                <h3>📝 Practice Question</h3>
+                <p><strong>Explain two reasons why firms may experience economies of scale. (6 marks)</strong></p>
+            </div>
+            <div class="marking-exercise">
+                <div class="student-answer">
+                    <h3>Student Answer to Mark</h3>
+                    <p>
+                        Firms experience economies of scale because they can buy in bulk. When they produce more, 
+                        they can negotiate better prices with suppliers, which reduces their average costs.
+                        <br><br>
+                        Another reason is specialization. Larger firms can have workers focus on specific tasks, 
+                        making them more efficient and productive.
+                    </p>
+                    <div class="mark-input">
+                        <label style="font-size: 20px;"><strong>Your Mark:</strong></label>
+                        <input type="number" min="0" max="6" placeholder="0-6" id="userMark">
+                        <br>
+                        <button class="submit-button" onclick="showFeedback()">Compare with Examiner</button>
+                    </div>
+                </div>
+                <div class="mark-scheme">
+                    <h3>Mark Scheme</h3>
+                    <p><strong>For each reason (3 marks each):</strong></p>
+                    <ul>
+                        <li>1 mark: Identification of the economy of scale</li>
+                        <li>1 mark: Explanation of how it works</li>
+                        <li>1 mark: Link to reducing average costs</li>
+                    </ul>
+                    <br>
+                    <p><strong>Possible reasons include:</strong></p>
+                    <ul>
+                        <li>Purchasing economies (bulk buying)</li>
+                        <li>Technical economies (efficient machinery)</li>
+                        <li>Managerial economies (specialist managers)</li>
+                        <li>Financial economies (better loan rates)</li>
+                        <li>Marketing economies (spread ad costs)</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="feedbackBox" style="display: none; margin-top: 30px; background: #E3F2FD; border-left: 5px solid #2196F3; padding: 25px; border-radius: 8px;">
+                <h3 style="font-family: 'Caveat', cursive; font-size: 32px; color: #1976D2; margin-bottom: 15px;">Examiner Feedback</h3>
+                <p style="font-size: 20px;"><strong>Examiner's Mark: 5/6</strong></p>
+                <p style="font-size: 19px; margin-top: 15px;">
+                    <strong>Reason 1 (Purchasing):</strong> 3/3 marks ✅<br>
+                    Clear identification, good explanation, and link to average costs.
+                </p>
+                <p style="font-size: 19px; margin-top: 15px;">
+                    <strong>Reason 2 (Specialisation):</strong> 2/3 marks ⚠️<br>
+                    Identified and explained well, but didn't explicitly link to "reducing average costs".
+                </p>
+                <p style="font-size: 19px; margin-top: 20px;">
+                    <strong>💡 Tip:</strong> Always ensure each point explicitly connects back to the question's requirement.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showFeedback() {
+            const userMark = document.getElementById('userMark').value;
+            if (!userMark) {
+                alert('Please enter your mark first!');
+                return;
+            }
+            document.getElementById('feedbackBox').style.display = 'block';
+            document.getElementById('feedbackBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+</body>
+</html>

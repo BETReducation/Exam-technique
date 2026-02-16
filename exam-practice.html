@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Practice - Exam Technique Excellence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Patrick Hand', cursive;
+            background: linear-gradient(135deg, #4ECDC4 0%, #6FE7DB 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 12px 25px;
+            background: white;
+            color: #4ECDC4;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .back-home:hover {
+            background: #2C3E50;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .page-header {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 56px;
+            font-weight: 700;
+            color: #4ECDC4;
+            margin-bottom: 20px;
+        }
+
+        .page-description {
+            font-size: 22px;
+            color: #555;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-section h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 42px;
+            color: #4ECDC4;
+            margin-bottom: 25px;
+        }
+
+        .practice-question {
+            background: #F0FFFE;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 3px solid #4ECDC4;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .question-header h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 32px;
+            color: #4ECDC4;
+        }
+
+        .question-marks {
+            background: #4ECDC4;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .question-text {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .answer-area {
+            width: 100%;
+            min-height: 200px;
+            padding: 20px;
+            border: 3px solid #4ECDC4;
+            border-radius: 12px;
+            font-size: 18px;
+            font-family: 'Patrick Hand', cursive;
+            resize: vertical;
+        }
+
+        .answer-area:focus {
+            outline: none;
+            border-color: #2C3E50;
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+        }
+
+        .submit-button {
+            background: #4ECDC4;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 22px;
+            font-family: 'Caveat', cursive;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .submit-button:hover {
+            background: #2C3E50;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+        }
+
+        .quiz-option {
+            background: white;
+            border: 3px solid #E0E0E0;
+            padding: 18px 25px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 20px;
+        }
+
+        .quiz-option:hover {
+            border-color: #4ECDC4;
+            background: #F0FFFE;
+            transform: translateX(5px);
+        }
+
+        .quiz-option.selected {
+            border-color: #4ECDC4;
+            background: #E0F7F5;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 42px;
+            }
+            .question-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .question-marks {
+                margin-top: 10px;
+            }
+        }
+    </style>
+    
+    <script src="content.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-home">← Back to Home</a>
+
+        <div class="page-header">
+            <h1>Exam Practice</h1>
+            <p class="page-description">
+                Put your knowledge to the test with carefully crafted practice questions based on real exam papers. Work through past paper questions, receive instant feedback, and build your confidence. Practice makes perfect!
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice Questions</h2>
+            <div id="practiceContainer">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Quick Quiz</h2>
+            <div id="quizContainer">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedOptions = {};
+
+        function loadPracticeQuestions() {
+            const container = document.getElementById('practiceContainer');
+            
+            if (typeof appContent !== 'undefined' && appContent.practiceQuestions) {
+                appContent.practiceQuestions.forEach(q => {
+                    const questionDiv = document.createElement('div');
+                    questionDiv.className = 'practice-question';
+                    questionDiv.innerHTML = `
+                        <div class="question-header">
+                            <h3>Question ${q.id}: ${q.topic}</h3>
+                            <span class="question-marks">${q.marks} marks</span>
+                        </div>
+                        <div class="question-text">
+                            <strong>${q.question}</strong>
+                            <br><br>
+                            <em>💡 Tip: ${q.tip}</em>
+                        </div>
+                        <textarea class="answer-area" placeholder="Type your answer here..."></textarea>
+                        <button class="submit-button" onclick="submitAnswer(${q.id})">Submit Answer</button>
+                    `;
+                    container.appendChild(questionDiv);
+                });
+            }
+        }
+
+        function loadQuizQuestions() {
+            const container = document.getElementById('quizContainer');
+            
+            if (typeof appContent !== 'undefined' && appContent.quizQuestions) {
+                appContent.quizQuestions.forEach(quiz => {
+                    const quizDiv = document.createElement('div');
+                    quizDiv.className = 'practice-question';
+                    
+                    const optionsHTML = quiz.options.map((option, index) => 
+                        `<div class="quiz-option" onclick="selectOption(this, ${quiz.id}, ${index})">${String.fromCharCode(65 + index)}) ${option}</div>`
+                    ).join('');
+                    
+                    quizDiv.innerHTML = `
+                        <div class="question-header">
+                            <h3>Quick Test</h3>
+                            <span class="question-marks">1 mark</span>
+                        </div>
+                        <div class="question-text">
+                            <strong>${quiz.question}</strong>
+                        </div>
+                        ${optionsHTML}
+                        <button class="submit-button" onclick="checkAnswer(${quiz.id}, ${quiz.correctAnswer}, '${quiz.explanation}')">Check Answer</button>
+                    `;
+                    container.appendChild(quizDiv);
+                });
+            }
+        }
+
+        function selectOption(element, quizId, optionIndex) {
+            const parentQuiz = element.closest('.practice-question');
+            const quizOptions = parentQuiz.querySelectorAll('.quiz-option');
+            quizOptions.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedOptions[quizId] = optionIndex;
+        }
+
+        function submitAnswer(questionNum) {
+            alert('Answer submitted! 🎯\n\nIn the full app, you would receive:\n✓ Mark prediction\n✓ Detailed feedback\n✓ Improvement suggestions\n✓ Links to relevant skills');
+        }
+
+        function checkAnswer(quizId, correctAnswer, explanation) {
+            if (selectedOptions[quizId] === undefined) {
+                alert('Please select an answer first!');
+                return;
+            }
+            
+            const isCorrect = selectedOptions[quizId] === correctAnswer;
+            
+            if (isCorrect) {
+                alert(`✅ Correct!\n\n${explanation}`);
+            } else {
+                const correctLetter = String.fromCharCode(65 + correctAnswer);
+                alert(`❌ Not quite!\n\nThe correct answer is ${correctLetter}.\n\n${explanation}`);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPracticeQuestions();
+            loadQuizQuestions();
+        });
+    </script>
+</body>
+</html>

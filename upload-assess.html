@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload & Assess - Exam Technique Excellence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Patrick Hand', cursive;
+            background: linear-gradient(135deg, #F7DC6F 0%, #F9E79F 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .back-home {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 12px 25px;
+            background: white;
+            color: #F7DC6F;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        .back-home:hover { background: #2C3E50; color: white; transform: translateY(-2px); }
+        .page-header {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .page-header h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 56px;
+            font-weight: 700;
+            color: #F7DC6F;
+            margin-bottom: 20px;
+        }
+        .page-description {
+            font-size: 22px;
+            color: #555;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .content-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+        .content-section h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 42px;
+            color: #F7DC6F;
+            margin-bottom: 25px;
+        }
+        .upload-area {
+            border: 4px dashed #F7DC6F;
+            padding: 60px;
+            text-align: center;
+            border-radius: 16px;
+            background: #FFFEF5;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .upload-area:hover {
+            background: #FFF9E6;
+            border-color: #2C3E50;
+        }
+        .upload-area .icon {
+            font-size: 72px;
+            color: #F7DC6F;
+            margin-bottom: 20px;
+        }
+        .upload-area h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 36px;
+            color: #2C3E50;
+            margin-bottom: 15px;
+        }
+        .upload-area p {
+            font-size: 20px;
+            color: #666;
+        }
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+        .info-list li {
+            font-size: 19px;
+            padding: 15px 20px;
+            background: #FFFEF5;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            border-left: 4px solid #F7DC6F;
+        }
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 42px; }
+        }
+    </style>
+    <script src="content.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-home">← Back to Home</a>
+        <div class="page-header">
+            <h1>Upload & Assess</h1>
+            <p class="page-description">
+                Get instant AI-powered feedback on your practice answers. Upload your work and receive detailed analysis, predicted marks, and personalized improvement tips. Learn from your mistakes and improve faster!
+            </p>
+        </div>
+        <div class="content-section">
+            <h2>Upload Your Work</h2>
+            <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                <div class="icon">📤</div>
+                <h3>Click to Upload Answer</h3>
+                <p>Supported formats: PDF, DOCX, TXT, JPG, PNG</p>
+                <p style="margin-top: 10px; font-size: 16px; opacity: 0.7;">Max file size: 10MB</p>
+            </div>
+            <input type="file" id="fileInput" style="display: none;" onchange="handleUpload(event)">
+        </div>
+        <div class="content-section">
+            <h2>How AI Assessment Works</h2>
+            <ul class="info-list" id="assessmentInfo"></ul>
+        </div>
+    </div>
+    <script>
+        function loadAssessmentInfo() {
+            if (typeof appContent === 'undefined') return;
+            const list = document.getElementById('assessmentInfo');
+            appContent.assessmentInfo.forEach(info => {
+                const li = document.createElement('li');
+                li.innerHTML = info;
+                list.appendChild(li);
+            });
+        }
+        
+        function handleUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                alert(`File "${file.name}" uploaded! 🎯\n\nAI is analyzing your answer...\n\nYou would receive:\n✓ Predicted mark\n✓ Strengths identified\n✓ Areas for improvement\n✓ Specific feedback`);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadAssessmentInfo);
+    </script>
+</body>
+</html>
