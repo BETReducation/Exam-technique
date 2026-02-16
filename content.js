@@ -28,7 +28,11 @@ const appContent = {
                 "<strong>Define:</strong> Give a precise meaning (1-2 marks)",
                 "<strong>Explain:</strong> Show cause and effect with reasoning (4-6 marks)",
                 "<strong>Analyse:</strong> Break down and examine in detail, showing links (8-10 marks)",
-                "<strong>Evaluate:</strong> Weigh up strengths and weaknesses, make a judgment (12-25 marks)"
+                "<strong>Evaluate:</strong> Weigh up strengths and weaknesses, make a judgment (12-25 marks)",
+                "<strong>Assess:</strong> Give a critical evaluation of the importance or value of something (12-25 marks)",
+                "<strong>Compare:</strong> Identify similarities and differences (6-10 marks)"
+                "<strong>Discuss:</strong> Present a balanced argument considering different perspectives (12-25 marks)"
+                "<strong>To what extent:</strong> Evaluate the importance of a factor, giving a supported judgment (12-25 marks)"
             ]
         },
         {
