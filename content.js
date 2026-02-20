@@ -33,8 +33,6 @@ const appContent = {
                 "<strong>Compare:</strong> Identify similarities and differences (6-10 marks)",
                 "<strong>Discuss:</strong> Present a balanced argument considering different perspectives (12-25 marks)",
                 "<strong>To what extent:</strong> Evaluate the importance of a factor, giving a supported judgment (12-25 marks)",
-                "<strong>Calculate:</strong> Show your working to arrive at a numerical answer (1-4 marks)",
-                "<strong>Draw:</strong> Create a diagram to illustrate a concept (1-4 marks)",
             ]
         },
         {
