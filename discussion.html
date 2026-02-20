@@ -181,8 +181,6 @@
     <script>
         function loadDiscussion() {
             if (typeof appContent === 'undefined') return;
-            
-            // Topics
             const topicsContainer = document.getElementById('topicsContainer');
             appContent.discussionTopics.forEach(topic => {
                 const card = document.createElement('div');
@@ -193,8 +191,6 @@
                 `;
                 topicsContainer.appendChild(card);
             });
-            
-            // Chat
             const chatArea = document.getElementById('chatArea');
             appContent.chatMessages.forEach(msg => {
                 const msgDiv = document.createElement('div');
@@ -206,7 +202,6 @@
                 chatArea.appendChild(msgDiv);
             });
         }
-        
         function sendMessage() {
             const input = document.getElementById('chatInput');
             if (input.value.trim()) {
@@ -222,11 +217,9 @@
                 chatArea.scrollTop = chatArea.scrollHeight;
             }
         }
-        
         document.getElementById('chatInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') sendMessage();
         });
-        
         document.addEventListener('DOMContentLoaded', loadDiscussion);
     </script>
 </body>

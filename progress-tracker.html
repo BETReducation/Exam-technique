@@ -157,8 +157,6 @@
     <script>
         function loadProgress() {
             if (typeof appContent === 'undefined') return;
-            
-            // Stats
             const statsGrid = document.getElementById('statsGrid');
             const stats = appContent.progressStats;
             statsGrid.innerHTML = `
@@ -179,8 +177,6 @@
                     <div class="label">Practice Tests</div>
                 </div>
             `;
-            
-            // Topic Progress
             const topicContainer = document.getElementById('topicProgress');
             appContent.topicProgress.forEach(topic => {
                 const item = document.createElement('div');
@@ -193,16 +189,12 @@
                 `;
                 topicContainer.appendChild(item);
             });
-            
-            // Activity
             const activityList = document.getElementById('activityList');
             appContent.recentActivity.forEach(activity => {
                 const li = document.createElement('li');
                 li.textContent = activity;
                 activityList.appendChild(li);
             });
-            
-            // Recommendations
             const recList = document.getElementById('recommendations');
             appContent.recommendations.forEach(rec => {
                 const li = document.createElement('li');
@@ -210,7 +202,6 @@
                 recList.appendChild(li);
             });
         }
-        
         document.addEventListener('DOMContentLoaded', loadProgress);
     </script>
 </body>

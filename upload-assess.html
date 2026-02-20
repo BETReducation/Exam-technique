@@ -143,14 +143,12 @@
                 list.appendChild(li);
             });
         }
-        
         function handleUpload(event) {
             const file = event.target.files[0];
             if (file) {
                 alert(`File "${file.name}" uploaded! 🎯\n\nAI is analyzing your answer...\n\nYou would receive:\n✓ Predicted mark\n✓ Strengths identified\n✓ Areas for improvement\n✓ Specific feedback`);
             }
         }
-        
         document.addEventListener('DOMContentLoaded', loadAssessmentInfo);
     </script>
 </body>
