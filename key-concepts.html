@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Concepts | Exam Technique Excellence</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #606c71;
+        }
+
+        .page-header {
+            color: #fff;
+            text-align: center;
+            background-image: linear-gradient(120deg, #155799, #159957);
+            padding: 3rem 4rem;
+        }
+
+        .project-name {
+            margin: 0 0 0.1rem 0;
+            font-size: 2.5rem;
+            font-weight: normal;
+        }
+
+        .project-tagline {
+            margin-bottom: 2rem;
+            font-weight: normal;
+            opacity: 0.7;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            color: rgba(255, 255, 255, 0.7);
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.3rem;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            margin: 0 0.5rem;
+        }
+
+        .btn:hover {
+            color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            background: #f3f6fa;
+            padding: 1rem 0;
+            text-align: center;
+            border-bottom: 2px solid #d1dce5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-menu a {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            color: #159957;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 0.3rem;
+            transition: all 0.2s;
+        }
+
+        .nav-menu a:hover {
+            background: #159957;
+            color: white;
+        }
+
+        /* Full-screen sections */
+        .concept-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            border-bottom: 3px solid #e0e0e0;
+        }
+
+        .concept-section:nth-child(odd) {
+            background: #ffffff;
+        }
+
+        .concept-section:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .section-content {
+            max-width: 64rem;
+            width: 100%;
+        }
+
+        .section-content h2 {
+            font-size: 2.5rem;
+            color: #159957;
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+        }
+
+        .section-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #606c71;
+            line-height: 1.8;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .topic-card {
+            background: white;
+            border: 1px solid #d1dce5;
+            border-left: 4px solid #159957;
+            padding: 1.5rem;
+            border-radius: 0.3rem;
+            transition: all 0.3s;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-left-width: 6px;
+        }
+
+        .topic-card h3 {
+            color: #159957;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .topic-card p {
+            font-size: 1rem;
+            margin: 0;
+            color: #606c71;
+        }
+
+        .topic-card ul {
+            margin-top: 1rem;
+            margin-left: 1.5rem;
+            color: #606c71;
+        }
+
+        .topic-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Section-specific colors */
+        #introduction .topic-card {
+            border-left-color: #155799;
+        }
+
+        #introduction h2,
+        #introduction .topic-card h3 {
+            color: #155799;
+        }
+
+        #microeconomics .topic-card {
+            border-left-color: #159957;
+        }
+
+        #macroeconomics .topic-card {
+            border-left-color: #e67e22;
+        }
+
+        #macroeconomics h2,
+        #macroeconomics .topic-card h3 {
+            color: #e67e22;
+        }
+
+        #international .topic-card {
+            border-left-color: #9b59b6;
+        }
+
+        #international h2,
+        #international .topic-card h3 {
+            color: #9b59b6;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 64em) {
+            .page-header {
+                padding: 2rem 2rem;
+            }
+
+            .concept-section {
+                padding: 3rem 2rem;
+            }
+
+            .section-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 42em) {
+            .page-header {
+                padding: 1.5rem 1rem;
+            }
+
+            .project-name {
+                font-size: 1.75rem;
+            }
+
+            .concept-section {
+                padding: 2rem 1rem;
+                min-height: auto;
+            }
+
+            .section-content h2 {
+                font-size: 1.75rem;
+            }
+
+            .section-content p {
+                font-size: 1rem;
+            }
+
+            .nav-menu {
+                position: static;
+            }
+
+            .nav-menu a {
+                display: block;
+                margin: 0.25rem 0;
+            }
+
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1 class="project-name">Key Concepts</h1>
+        <h2 class="project-tagline">Master the fundamental economic concepts across all A-Level themes</h2>
+        <a href="index.html" class="btn">← Back to Home</a>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+        <a href="#introduction">Introduction to Economics</a>
+        <a href="#microeconomics">Microeconomics</a>
+        <a href="#macroeconomics">Macroeconomics</a>
+        <a href="#international">International Economy</a>
+    </nav>
+
+    <!-- Section 1: Introduction to Economics -->
+    <section id="introduction" class="concept-section">
+        <div class="section-content">
+            <h2>1. Introduction to Economics</h2>
+            <p>Understanding the fundamental principles and basic economic problem that underpins all economic study. These foundational concepts are essential for success in A-Level Economics.</p>
+            
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <h3>Economic Problem</h3>
+                    <p>The fundamental issue facing all economies:</p>
+                    <ul>
+                        <li>Scarcity of resources</li>
+                        <li>Unlimited wants and needs</li>
+                        <li>Choice and opportunity cost</li>
+                        <li>Resource allocation</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Factors of Production</h3>
+                    <p>The resources used to produce goods and services:</p>
+                    <ul>
+                        <li>Land (natural resources)</li>
+                        <li>Labour (human resources)</li>
+                        <li>Capital (man-made resources)</li>
+                        <li>Enterprise (entrepreneurship)</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Production Possibility Frontiers</h3>
+                    <p>Visual representation of production choices:</p>
+                    <ul>
+                        <li>Maximum production capacity</li>
+                        <li>Trade-offs between goods</li>
+                        <li>Economic growth and shifts</li>
+                        <li>Efficiency and waste</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Economic Systems</h3>
+                    <p>Different ways societies organize production:</p>
+                    <ul>
+                        <li>Free market economy</li>
+                        <li>Command economy</li>
+                        <li>Mixed economy</li>
+                        <li>Role of government</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Microeconomics -->
+    <section id="microeconomics" class="concept-section">
+        <div class="section-content">
+            <h2>2. Microeconomics</h2>
+            <p>Study of individual markets, consumer and producer behavior, and how prices are determined. Understanding these concepts is crucial for analyzing specific market situations.</p>
+            
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <h3>Demand & Supply</h3>
+                    <p>Market forces that determine prices:</p>
+                    <ul>
+                        <li>Law of demand</li>
+                        <li>Law of supply</li>
+                        <li>Market equilibrium</li>
+                        <li>Price mechanism</li>
+                        <li>Shifts vs. movements</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Elasticity</h3>
+                    <p>Responsiveness of demand and supply:</p>
+                    <ul>
+                        <li>Price elasticity of demand (PED)</li>
+                        <li>Income elasticity (YED)</li>
+                        <li>Cross elasticity (XED)</li>
+                        <li>Price elasticity of supply (PES)</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Market Failure</h3>
+                    <p>When markets fail to allocate efficiently:</p>
+                    <ul>
+                        <li>Externalities (positive/negative)</li>
+                        <li>Public goods</li>
+                        <li>Information failure</li>
+                        <li>Market power</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Government Intervention</h3>
+                    <p>Methods to correct market failure:</p>
+                    <ul>
+                        <li>Indirect taxes and subsidies</li>
+                        <li>Price controls (min/max)</li>
+                        <li>Regulation and legislation</li>
+                        <li>Government provision</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Production & Costs</h3>
+                    <p>How firms produce and manage costs:</p>
+                    <ul>
+                        <li>Short run vs. long run</li>
+                        <li>Fixed and variable costs</li>
+                        <li>Economies of scale</li>
+                        <li>Productivity and efficiency</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Market Structures</h3>
+                    <p>Different types of competitive markets:</p>
+                    <ul>
+                        <li>Perfect competition</li>
+                        <li>Monopolistic competition</li>
+                        <li>Oligopoly</li>
+                        <li>Monopoly</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Macroeconomics -->
+    <section id="macroeconomics" class="concept-section">
+        <div class="section-content">
+            <h2>3. Macroeconomics</h2>
+            <p>Analysis of the economy as a whole, including national income, employment, inflation, and government policy. These concepts help understand how entire economies function and grow.</p>
+            
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <h3>National Income</h3>
+                    <p>Measuring economic performance:</p>
+                    <ul>
+                        <li>GDP, GNP, GNI</li>
+                        <li>Real vs. nominal GDP</li>
+                        <li>Economic growth</li>
+                        <li>Circular flow of income</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Aggregate Demand</h3>
+                    <p>Total demand in the economy:</p>
+                    <ul>
+                        <li>Components (C+I+G+X-M)</li>
+                        <li>AD curve and shifts</li>
+                        <li>Consumption determinants</li>
+                        <li>Investment factors</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Aggregate Supply</h3>
+                    <p>Total supply in the economy:</p>
+                    <ul>
+                        <li>Short-run AS (SRAS)</li>
+                        <li>Long-run AS (LRAS)</li>
+                        <li>Shifts and determinants</li>
+                        <li>Productive capacity</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Unemployment</h3>
+                    <p>Types and causes of unemployment:</p>
+                    <ul>
+                        <li>Structural unemployment</li>
+                        <li>Cyclical unemployment</li>
+                        <li>Frictional unemployment</li>
+                        <li>Measurement and costs</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Inflation</h3>
+                    <p>Rising general price levels:</p>
+                    <ul>
+                        <li>Demand-pull inflation</li>
+                        <li>Cost-push inflation</li>
+                        <li>CPI and RPI measurement</li>
+                        <li>Effects and costs</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Fiscal Policy</h3>
+                    <p>Government spending and taxation:</p>
+                    <ul>
+                        <li>Budget deficit/surplus</li>
+                        <li>Government spending types</li>
+                        <li>Taxation (direct/indirect)</li>
+                        <li>Automatic stabilizers</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Monetary Policy</h3>
+                    <p>Central bank control of money supply:</p>
+                    <ul>
+                        <li>Interest rates</li>
+                        <li>Quantitative easing</li>
+                        <li>Inflation targeting</li>
+                        <li>Exchange rate effects</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Supply-Side Policies</h3>
+                    <p>Improving productive capacity:</p>
+                    <ul>
+                        <li>Education and training</li>
+                        <li>Infrastructure investment</li>
+                        <li>Competition policy</li>
+                        <li>Labour market reforms</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: The International Economy -->
+    <section id="international" class="concept-section">
+        <div class="section-content">
+            <h2>4. The International Economy</h2>
+            <p>How countries trade with each other, exchange rates, and the global economy. Understanding international economics is essential in our interconnected world.</p>
+            
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <h3>International Trade</h3>
+                    <p>Why countries trade:</p>
+                    <ul>
+                        <li>Comparative advantage</li>
+                        <li>Absolute advantage</li>
+                        <li>Terms of trade</li>
+                        <li>Gains from trade</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Trade Barriers</h3>
+                    <p>Restrictions on free trade:</p>
+                    <ul>
+                        <li>Tariffs</li>
+                        <li>Quotas</li>
+                        <li>Subsidies</li>
+                        <li>Non-tariff barriers</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Exchange Rates</h3>
+                    <p>The price of currencies:</p>
+                    <ul>
+                        <li>Fixed vs. floating</li>
+                        <li>Appreciation/depreciation</li>
+                        <li>Determinants of exchange rates</li>
+                        <li>Effects on economy</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Balance of Payments</h3>
+                    <p>Record of international transactions:</p>
+                    <ul>
+                        <li>Current account</li>
+                        <li>Capital account</li>
+                        <li>Financial account</li>
+                        <li>Deficits and surpluses</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Globalisation</h3>
+                    <p>Increasing economic integration:</p>
+                    <ul>
+                        <li>Causes of globalisation</li>
+                        <li>Benefits and costs</li>
+                        <li>Impact on development</li>
+                        <li>Trade agreements</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Economic Development</h3>
+                    <p>Growth in developing countries:</p>
+                    <ul>
+                        <li>Poverty and inequality</li>
+                        <li>Human Development Index</li>
+                        <li>Barriers to development</li>
+                        <li>Aid and trade policies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

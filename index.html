@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exam Technique Excellence | Master Your Economics Exams</title>
-    <meta name="description" content="Master your Economics exam technique with comprehensive practice, marking guides, and progress tracking for A-Level and GCSE students.">
+    <meta name="description" content="Master Economics exam technique with comprehensive resources for A-Level students covering key concepts and examination skills.">
     
     <style>
         * {
@@ -145,46 +145,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Setup Section */
-        .setup-section {
-            background: #f3f6fa;
-            border: 1px solid #d1dce5;
-            border-radius: 0.3rem;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-
-        .setup-section h2 {
-            margin-top: 0;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #159957;
-        }
-
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem;
-            font-size: 1rem;
-            border: 1px solid #d1dce5;
-            border-radius: 0.3rem;
-            background: white;
-            color: #606c71;
-        }
-
-        .form-group select:focus {
-            outline: none;
-            border-color: #159957;
-            box-shadow: 0 0 0 3px rgba(21, 153, 87, 0.1);
-        }
-
         /* Footer */
         .site-footer {
             padding-top: 2rem;
@@ -244,54 +204,25 @@
     <!-- Cayman Theme Header -->
     <header class="page-header" role="banner">
         <h1 class="project-name">Exam Technique Excellence</h1>
-        <h2 class="project-tagline">Master Your Economics Exams with Confidence</h2>
-        <a href="#get-started" class="btn">Get Started</a>
-        <a href="#features" class="btn">View Features</a>
+        <h2 class="project-tagline">Master A-Level Economics with Comprehensive Resources and Exam Skills</h2>
+        <a href="#features" class="btn">Explore Resources</a>
     </header>
 
     <!-- Main Content -->
     <main class="main-content" role="main">
-        
-        <!-- Setup Section -->
-        <section id="get-started" class="setup-section">
-            <h2>Get Started</h2>
-            <p>Choose your exam level and board to access tailored content and practice materials.</p>
-            
-            <div class="form-group">
-                <label for="level">Select Your Level</label>
-                <select id="level">
-                    <option value="">Choose level...</option>
-                    <option value="alevel">A-Level</option>
-                    <option value="gcse">GCSE</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="examBoard">Select Exam Board</label>
-                <select id="examBoard">
-                    <option value="">Choose exam board...</option>
-                    <option value="aqa">AQA</option>
-                    <option value="edexcel">Edexcel</option>
-                    <option value="ocr">OCR</option>
-                    <option value="wjec">WJEC</option>
-                    <option value="cie">Cambridge CIE</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="subject">Subject</label>
-                <select id="subject">
-                    <option value="economics">Economics</option>
-                </select>
-            </div>
-        </section>
 
         <!-- Features Section -->
         <section id="features">
-            <h2>Features</h2>
-            <p>Everything you need to excel in your Economics exams, all in one place.</p>
+            <h2>Resources & Features</h2>
+            <p>Everything you need to excel in A-Level Economics, all in one place.</p>
             
             <div class="features-grid">
+                <a href="key-concepts.html" class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Key Concepts</h3>
+                    <p>Master the fundamental economic concepts across all major themes: Introduction to Economics, Microeconomics, Macroeconomics, and The International Economy.</p>
+                </a>
+
                 <a href="exam-technique.html" class="feature-card">
                     <div class="feature-icon">📚</div>
                     <h3>Exam Technique</h3>
@@ -333,12 +264,13 @@
         <!-- About Section -->
         <section>
             <h2>About</h2>
-            <p>Exam Technique Excellence is designed to help A-Level and GCSE Economics students master the skills needed for exam success. Our platform combines proven exam techniques, extensive practice materials, and intelligent progress tracking to help you achieve your best results.</p>
+            <p>Exam Technique Excellence is designed to help A-Level Economics students master both the content and the skills needed for exam success. Our platform combines comprehensive coverage of key economic concepts with proven exam techniques and extensive practice materials.</p>
             
             <h3>What Makes Us Different?</h3>
             <ul>
+                <li><strong>Complete Coverage:</strong> All major A-Level themes covered in detail</li>
                 <li><strong>Examiner Insights:</strong> Learn exactly what examiners look for in top-scoring answers</li>
-                <li><strong>Adaptive Practice:</strong> Content tailored to your exam board and level</li>
+                <li><strong>Adaptive Practice:</strong> Practice questions across all difficulty levels</li>
                 <li><strong>Progress Tracking:</strong> Monitor your improvement over time</li>
                 <li><strong>AI-Powered Feedback:</strong> Get detailed analysis of your practice answers</li>
                 <li><strong>Community Learning:</strong> Discuss and learn with fellow students</li>
@@ -348,23 +280,7 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-        <p>Exam Technique Excellence &copy; 2026 | Built for Economics Students</p>
+        <p>Exam Technique Excellence &copy; 2026 | Built for A-Level Economics Students</p>
     </footer>
-
-    <script>
-        // Setup form handling
-        document.getElementById('level').addEventListener('change', checkSetup);
-        document.getElementById('examBoard').addEventListener('change', checkSetup);
-
-        function checkSetup() {
-            const level = document.getElementById('level').value;
-            const examBoard = document.getElementById('examBoard').value;
-            
-            if (level && examBoard) {
-                // Smooth scroll to features
-                document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    </script>
 </body>
 </html>
