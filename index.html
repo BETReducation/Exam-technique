@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exam Technique Excellence - Academic Distinction</title>
-    
-    <!-- Classical Serif Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Exam Technique Excellence | Master Your Economics Exams</title>
+    <meta name="description" content="Master your Economics exam technique with comprehensive practice, marking guides, and progress tracking for A-Level and GCSE students.">
     
     <style>
         * {
@@ -15,603 +13,358 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-            scroll-snap-type: y mandatory;
-        }
-
         body {
-            font-family: 'EB Garamond', 'Garamond', serif;
-            overflow-x: hidden;
-            background: #1a1a1a;
-            color: #2C2C2C;
+            font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #606c71;
         }
 
-        /* Section base */
-        .section {
-            min-height: 100vh;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 40px;
-            position: relative;
-            scroll-snap-align: start;
-            overflow: hidden;
-        }
-
-        /* Hero Section - Oxford/Harvard inspired */
-        .hero-section {
-            background: linear-gradient(135deg, #002147 0%, #001a3a 100%);
-            position: relative;
-        }
-
-        /* Decorative overlay pattern */
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px);
-            pointer-events: none;
-        }
-
-        .hero-content {
+        /* Cayman Theme Header */
+        .page-header {
+            color: #fff;
             text-align: center;
-            z-index: 10;
-            max-width: 1000px;
-            margin-top: -80px;
+            background-color: #159957;
+            background-image: linear-gradient(120deg, #155799, #159957);
+            padding: 5rem 6rem;
         }
 
-        /* University Crest */
-        .university-crest {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 30px;
-            animation: fadeIn 1.5s ease;
+        .project-name {
+            margin-top: 0;
+            margin-bottom: 0.1rem;
+            font-size: 3.25rem;
+            font-weight: normal;
         }
 
-        .hero-content h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 72px;
-            font-weight: 300;
-            color: #F4ECD8;
-            margin-bottom: 15px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            animation: fadeInDown 1s ease;
+        .project-tagline {
+            margin-bottom: 2rem;
+            font-weight: normal;
+            opacity: 0.7;
+            font-size: 1.25rem;
         }
 
-        .hero-content .latin-motto {
-            font-family: 'Crimson Text', serif;
-            font-size: 24px;
-            color: #B8860B;
-            font-style: italic;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero-content .subtitle {
-            font-size: 28px;
-            color: #D4C5A9;
-            margin-bottom: 50px;
-            font-weight: 400;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        /* Ornamental divider */
-        .divider {
-            width: 200px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #B8860B, transparent);
-            margin: 30px auto;
-        }
-
-        /* Classical CTA Button */
-        .cta-button {
+        .btn {
             display: inline-block;
-            padding: 18px 50px;
-            font-size: 20px;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            background: transparent;
-            color: #B8860B;
-            border: 2px solid #B8860B;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 0.3rem;
+            transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
             text-decoration: none;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 1s ease 0.6s both;
+            margin: 0 0.5rem;
         }
 
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: #B8860B;
-            transition: left 0.4s ease;
-            z-index: -1;
+        .btn:hover {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
-        .cta-button:hover::before {
-            left: 0;
+        .btn + .btn {
+            margin-left: 1rem;
         }
 
-        .cta-button:hover {
-            color: #002147;
-            border-color: #B8860B;
-            box-shadow: 0 0 20px rgba(184, 134, 11, 0.5);
-        }
-
-        /* Section styling with different academic colors */
-        .exam-technique-section {
-            background: linear-gradient(135deg, #A51C30 0%, #8B1528 100%);
-            color: #F4ECD8;
-        }
-
-        .exam-practice-section {
-            background: linear-gradient(135deg, #00356B 0%, #002147 100%);
-            color: #F4ECD8;
-        }
-
-        .marking-practice-section {
-            background: linear-gradient(135deg, #1B4D3E 0%, #0F3A2E 100%);
-            color: #F4ECD8;
-        }
-
-        .progress-tracker-section {
-            background: linear-gradient(135deg, #4A235A 0%, #341647 100%);
-            color: #F4ECD8;
-        }
-
-        .upload-assess-section {
-            background: linear-gradient(135deg, #6B4423 0%, #4A2F1A 100%);
-            color: #F4ECD8;
-        }
-
-        .discussion-section {
-            background: linear-gradient(135deg, #5D4037 0%, #3E2723 100%);
-            color: #F4ECD8;
-        }
-
-        /* Section headers */
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-            z-index: 10;
-        }
-
-        .section-header h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 58px;
-            font-weight: 400;
-            margin-bottom: 20px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .section-header.visible h2 {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .section-header .section-motto {
-            font-family: 'Crimson Text', serif;
-            font-size: 20px;
-            font-style: italic;
-            color: #B8860B;
-            margin-bottom: 15px;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .section-header.visible .section-motto {
-            animation: fadeInUp 0.8s ease 0.2s forwards;
-        }
-
-        .section-header p {
-            font-size: 22px;
-            max-width: 700px;
+        /* Main Content */
+        .main-content {
+            max-width: 64rem;
+            padding: 2rem 4rem;
             margin: 0 auto;
-            line-height: 1.7;
-            opacity: 0;
-            transform: translateY(20px);
+            font-size: 1.1rem;
         }
 
-        .section-header.visible p {
-            animation: fadeInUp 0.8s ease 0.3s forwards;
+        .main-content h1,
+        .main-content h2,
+        .main-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+            color: #159957;
         }
 
-        /* Classical Icon containers - Shield/Crest style */
-        .section-icon {
-            width: 200px;
-            height: 230px;
-            margin: 0 auto 40px;
-            opacity: 0;
-            transform: scale(0.8);
-            position: relative;
+        .main-content h1 {
+            font-size: 2.25rem;
         }
 
-        .section-icon.visible {
-            animation: iconAppear 1s ease forwards;
+        .main-content h2 {
+            font-size: 1.75rem;
         }
 
-        @keyframes iconAppear {
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+        .main-content h3 {
+            font-size: 1.25rem;
         }
 
-        /* Ornamental corners */
-        .corner-ornament {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            opacity: 0.3;
+        .main-content p {
+            margin-bottom: 1em;
         }
 
-        .corner-ornament.top-left {
-            top: 40px;
-            left: 40px;
+        /* Feature Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
 
-        .corner-ornament.top-right {
-            top: 40px;
-            right: 40px;
-            transform: scaleX(-1);
+        .feature-card {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 0.3rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
-        .corner-ornament.bottom-left {
-            bottom: 40px;
-            left: 40px;
-            transform: scaleY(-1);
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: #159957;
         }
 
-        .corner-ornament.bottom-right {
-            bottom: 40px;
-            right: 40px;
-            transform: scale(-1);
+        .feature-card h3 {
+            color: #159957;
+            margin-top: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
         }
 
-        /* Scroll indicator - classical style */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            cursor: pointer;
-            color: #B8860B;
+        .feature-card p {
+            color: #606c71;
+            margin: 0;
         }
 
-        .scroll-indicator svg {
-            width: 40px;
-            height: 40px;
-            stroke: #B8860B;
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        /* Setup Section */
+        .setup-section {
+            background: #f3f6fa;
+            border: 1px solid #d1dce5;
+            border-radius: 0.3rem;
+            padding: 2rem;
+            margin: 2rem 0;
         }
 
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .setup-section h2 {
+            margin-top: 0;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .form-group {
+            margin-bottom: 1.5rem;
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-15px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-8px);
-            }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #159957;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 1px solid #d1dce5;
+            border-radius: 0.3rem;
+            background: white;
+            color: #606c71;
+        }
+
+        .form-group select:focus {
+            outline: none;
+            border-color: #159957;
+            box-shadow: 0 0 0 3px rgba(21, 153, 87, 0.1);
+        }
+
+        /* Footer */
+        .site-footer {
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: solid 1px #eff0f1;
+            text-align: center;
+            color: #819198;
+            font-size: 0.9rem;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 42px;
+        @media screen and (max-width: 64em) {
+            .page-header {
+                padding: 3rem 2rem;
             }
 
-            .hero-content .subtitle {
-                font-size: 20px;
+            .project-name {
+                font-size: 2.25rem;
             }
 
-            .section-header h2 {
-                font-size: 38px;
-            }
-
-            .section-header p {
-                font-size: 18px;
-            }
-
-            .section-icon {
-                width: 150px;
-                height: 170px;
-            }
-
-            .corner-ornament {
-                width: 40px;
-                height: 40px;
+            .project-tagline {
+                font-size: 1rem;
             }
         }
 
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-                scroll-snap-type: none;
+        @media screen and (max-width: 42em) {
+            .page-header {
+                padding: 2rem 1rem;
             }
 
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+            .project-name {
+                font-size: 1.75rem;
+            }
+
+            .project-tagline {
+                font-size: 0.9rem;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+                font-size: 1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                margin: 0.5rem 0;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Cayman Theme Header -->
+    <header class="page-header" role="banner">
+        <h1 class="project-name">Exam Technique Excellence</h1>
+        <h2 class="project-tagline">Master Your Economics Exams with Confidence</h2>
+        <a href="#get-started" class="btn">Get Started</a>
+        <a href="#features" class="btn">View Features</a>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="section hero-section">
-        <!-- Ornamental corners -->
-        <svg class="corner-ornament top-left" viewBox="0 0 60 60" fill="none" stroke="#B8860B" stroke-width="1">
-            <path d="M 0 0 L 50 0 M 0 0 L 0 50 M 10 0 C 10 20 0 20 0 30 M 0 10 C 20 10 20 0 30 0"/>
-        </svg>
-        <svg class="corner-ornament top-right" viewBox="0 0 60 60" fill="none" stroke="#B8860B" stroke-width="1">
-            <path d="M 0 0 L 50 0 M 0 0 L 0 50 M 10 0 C 10 20 0 20 0 30 M 0 10 C 20 10 20 0 30 0"/>
-        </svg>
+    <!-- Main Content -->
+    <main class="main-content" role="main">
+        
+        <!-- Setup Section -->
+        <section id="get-started" class="setup-section">
+            <h2>Get Started</h2>
+            <p>Choose your exam level and board to access tailored content and practice materials.</p>
+            
+            <div class="form-group">
+                <label for="level">Select Your Level</label>
+                <select id="level">
+                    <option value="">Choose level...</option>
+                    <option value="alevel">A-Level</option>
+                    <option value="gcse">GCSE</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="examBoard">Select Exam Board</label>
+                <select id="examBoard">
+                    <option value="">Choose exam board...</option>
+                    <option value="aqa">AQA</option>
+                    <option value="edexcel">Edexcel</option>
+                    <option value="ocr">OCR</option>
+                    <option value="wjec">WJEC</option>
+                    <option value="cie">Cambridge CIE</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject">
+                    <option value="economics">Economics</option>
+                </select>
+            </div>
+        </section>
 
-        <!-- University Crest -->
-        <div class="university-crest">
-            <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
-                <!-- Shield outline -->
-                <path d="M 75 10 L 130 30 L 130 75 Q 130 120 75 140 Q 20 120 20 75 L 20 30 Z" 
-                      fill="none" stroke="#B8860B" stroke-width="3"/>
-                <!-- Inner shield -->
-                <path d="M 75 20 L 120 35 L 120 75 Q 120 110 75 128 Q 30 110 30 75 L 30 35 Z" 
-                      fill="#002147" stroke="#B8860B" stroke-width="2"/>
-                <!-- Book -->
-                <rect x="55" y="55" width="40" height="30" fill="none" stroke="#B8860B" stroke-width="2"/>
-                <line x1="75" y1="55" x2="75" y2="85" stroke="#B8860B" stroke-width="2"/>
-                <!-- Laurel wreath -->
-                <path d="M 45 95 Q 50 105 60 100 Q 55 95 60 90" fill="none" stroke="#B8860B" stroke-width="1.5"/>
-                <path d="M 105 95 Q 100 105 90 100 Q 95 95 90 90" fill="none" stroke="#B8860B" stroke-width="1.5"/>
-                <!-- Stars -->
-                <circle cx="60" cy="40" r="2" fill="#B8860B"/>
-                <circle cx="90" cy="40" r="2" fill="#B8860B"/>
-                <circle cx="75" cy="95" r="2" fill="#B8860B"/>
-            </svg>
-        </div>
+        <!-- Features Section -->
+        <section id="features">
+            <h2>Features</h2>
+            <p>Everything you need to excel in your Economics exams, all in one place.</p>
+            
+            <div class="features-grid">
+                <a href="exam-technique.html" class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Exam Technique</h3>
+                    <p>Learn the proven strategies and methods that examiners look for. Master command words, essay structure, and time management.</p>
+                </a>
 
-        <div class="hero-content">
-            <h1>Exam Technique Excellence</h1>
-            <p class="latin-motto">Scientia Potentia Est</p>
-            <div class="divider"></div>
-            <p class="subtitle">Master Your Economics Examinations with Academic Distinction</p>
-            <a href="exam-technique.html" class="cta-button">Begin Your Studies</a>
-        </div>
+                <a href="exam-practice.html" class="feature-card">
+                    <div class="feature-icon">✍️</div>
+                    <h3>Exam Practice</h3>
+                    <p>Apply your skills with past paper questions and custom practice sets. Get instant feedback on your answers.</p>
+                </a>
 
-        <div class="scroll-indicator" onclick="document.getElementById('exam-technique').scrollIntoView()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 5v14M5 12l7 7 7-7"/>
-            </svg>
-        </div>
-    </section>
+                <a href="marking-practice.html" class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>Marking Practice</h3>
+                    <p>Learn to think like an examiner. Practice marking sample answers and compare with official mark schemes.</p>
+                </a>
 
-    <!-- Exam Technique Section - Harvard Crimson -->
-    <section class="section exam-technique-section" id="exam-technique" onclick="window.location.href='exam-technique.html'" style="cursor: pointer;">
-        <div class="section-icon">
-            <svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg">
-                <!-- Shield base -->
-                <path d="M 100 10 L 170 30 L 170 120 Q 170 180 100 210 Q 30 180 30 120 L 30 30 Z" 
-                      fill="#8B1528" stroke="#B8860B" stroke-width="3"/>
-                <!-- Book symbol -->
-                <rect x="70" y="70" width="60" height="50" fill="none" stroke="#F4ECD8" stroke-width="3"/>
-                <line x1="100" y1="70" x2="100" y2="120" stroke="#F4ECD8" stroke-width="2"/>
-                <line x1="80" y1="85" x2="95" y2="85" stroke="#F4ECD8" stroke-width="1.5"/>
-                <line x1="80" y1="95" x2="95" y2="95" stroke="#F4ECD8" stroke-width="1.5"/>
-                <line x1="105" y1="85" x2="120" y2="85" stroke="#F4ECD8" stroke-width="1.5"/>
-                <line x1="105" y1="95" x2="120" y2="95" stroke="#F4ECD8" stroke-width="1.5"/>
-                <!-- Quill -->
-                <line x1="130" y1="50" x2="145" y2="35" stroke="#B8860B" stroke-width="2"/>
-                <circle cx="145" cy="35" r="3" fill="#B8860B"/>
-                <!-- Stars -->
-                <circle cx="60" cy="45" r="2" fill="#B8860B"/>
-                <circle cx="140" cy="45" r="2" fill="#B8860B"/>
-            </svg>
-        </div>
-        <div class="section-header">
-            <p class="section-motto">Per Scientiam Ad Excellentiam</p>
-            <h2>Exam Technique</h2>
-            <div class="divider"></div>
-            <p>Master the distinguished methodologies that examiners seek in exemplary responses. Acquire proficiency in interpreting command words and structuring arguments with scholarly precision.</p>
-        </div>
-    </section>
+                <a href="progress-tracker.html" class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Progress Tracker</h3>
+                    <p>Monitor your improvement across topics. See your strengths and identify areas to focus on.</p>
+                </a>
 
-    <!-- Exam Practice Section - Yale Blue -->
-    <section class="section exam-practice-section" onclick="window.location.href='exam-practice.html'" style="cursor: pointer;">
-        <div class="section-icon">
-            <svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 100 10 L 170 30 L 170 120 Q 170 180 100 210 Q 30 180 30 120 L 30 30 Z" 
-                      fill="#002147" stroke="#B8860B" stroke-width="3"/>
-                <!-- Scroll/Document -->
-                <rect x="65" y="60" width="70" height="90" rx="5" fill="none" stroke="#F4ECD8" stroke-width="3"/>
-                <line x1="75" y1="80" x2="125" y2="80" stroke="#F4ECD8" stroke-width="2"/>
-                <line x1="75" y1="95" x2="125" y2="95" stroke="#F4ECD8" stroke-width="2"/>
-                <line x1="75" y1="110" x2="120" y2="110" stroke="#F4ECD8" stroke-width="2"/>
-                <line x1="75" y1="125" x2="125" y2="125" stroke="#F4ECD8" stroke-width="2"/>
-                <!-- Checkmark -->
-                <path d="M 85 135 L 95 145 L 115 120" fill="none" stroke="#B8860B" stroke-width="3"/>
-            </svg>
-        </div>
-        <div class="section-header">
-            <p class="section-motto">Lux et Veritas</p>
-            <h2>Exam Practice</h2>
-            <div class="divider"></div>
-            <p>Apply your knowledge through carefully curated practice questions derived from authentic examination papers. Receive comprehensive feedback to refine your academic performance.</p>
-        </div>
-    </section>
+                <a href="upload-assess.html" class="feature-card">
+                    <div class="feature-icon">📤</div>
+                    <h3>Upload & Assess</h3>
+                    <p>Get AI-powered feedback on your practice answers with detailed analysis and improvement tips.</p>
+                </a>
 
-    <!-- Marking Practice Section - Oxford Green -->
-    <section class="section marking-practice-section" onclick="window.location.href='marking-practice.html'" style="cursor: pointer;">
-        <div class="section-icon">
-            <svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 100 10 L 170 30 L 170 120 Q 170 180 100 210 Q 30 180 30 120 L 30 30 Z" 
-                      fill="#0F3A2E" stroke="#B8860B" stroke-width="3"/>
-                <!-- Clipboard -->
-                <rect x="70" y="50" width="60" height="100" rx="3" fill="none" stroke="#F4ECD8" stroke-width="3"/>
-                <!-- Papers -->
-                <line x1="80" y1="70" x2="120" y2="70" stroke="#F4ECD8" stroke-width="2"/>
-                <line x1="80" y1="85" x2="115" y2="85" stroke="#F4ECD8" stroke-width="2"/>
-                <line x1="80" y1="100" x2="120" y2="100" stroke="#F4ECD8" stroke-width="2"/>
-                <!-- Grade circle -->
-                <circle cx="100" cy="125" r="15" fill="none" stroke="#B8860B" stroke-width="2"/>
-                <text x="93" y="132" font-size="16" font-family="Cormorant Garamond" font-weight="700" fill="#B8860B">A</text>
-            </svg>
-        </div>
-        <div class="section-header">
-            <p class="section-motto">Eruditio et Religio</p>
-            <h2>Marking Practice</h2>
-            <div class="divider"></div>
-            <p>Develop the discerning eye of an examiner. Practice evaluating scholarly responses, compare your assessments with official mark schemes, and cultivate expertise in academic assessment.</p>
-        </div>
-    </section>
+                <a href="discussion.html" class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Discussion</h3>
+                    <p>Connect with peers and teachers. Share insights and learn from each other's perspectives.</p>
+                </a>
+            </div>
+        </section>
 
-    <!-- Progress Tracker Section - Cambridge Purple -->
-    <section class="section progress-tracker-section" onclick="window.location.href='progress-tracker.html'" style="cursor: pointer;">
-        <div class="section-icon">
-            <svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 100 10 L 170 30 L 170 120 Q 170 180 100 210 Q 30 180 30 120 L 30 30 Z" 
-                      fill="#341647" stroke="#B8860B" stroke-width="3"/>
-                <!-- Graph -->
-                <line x1="50" y1="140" x2="50" y2="70" stroke="#F4ECD8" stroke-width="2"/>
-                <line x1="50" y1="140" x2="150" y2="140" stroke="#F4ECD8" stroke-width="2"/>
-                <!-- Rising bars -->
-                <rect x="65" y="120" width="15" height="20" fill="#F4ECD8"/>
-                <rect x="90" y="105" width="15" height="35" fill="#F4ECD8"/>
-                <rect x="115" y="85" width="15" height="55" fill="#F4ECD8"/>
-                <!-- Star of achievement -->
-                <path d="M 100 55 l 5 15 l 15 5 l -15 5 l -5 15 l -5 -15 l -15 -5 l 15 -5 z" fill="#B8860B"/>
-            </svg>
-        </div>
-        <div class="section-header">
-            <p class="section-motto">Hinc Lucem et Pocula Sacra</p>
-            <h2>Progress Tracker</h2>
-            <div class="divider"></div>
-            <p>Monitor your intellectual development across disciplines. Observe your advancement, identify areas of strength, and focus your scholarly efforts where they yield the greatest return.</p>
-        </div>
-    </section>
+        <!-- About Section -->
+        <section>
+            <h2>About</h2>
+            <p>Exam Technique Excellence is designed to help A-Level and GCSE Economics students master the skills needed for exam success. Our platform combines proven exam techniques, extensive practice materials, and intelligent progress tracking to help you achieve your best results.</p>
+            
+            <h3>What Makes Us Different?</h3>
+            <ul>
+                <li><strong>Examiner Insights:</strong> Learn exactly what examiners look for in top-scoring answers</li>
+                <li><strong>Adaptive Practice:</strong> Content tailored to your exam board and level</li>
+                <li><strong>Progress Tracking:</strong> Monitor your improvement over time</li>
+                <li><strong>AI-Powered Feedback:</strong> Get detailed analysis of your practice answers</li>
+                <li><strong>Community Learning:</strong> Discuss and learn with fellow students</li>
+            </ul>
+        </section>
+    </main>
 
-    <!-- Upload & Assess Section - Brown/Leather -->
-    <section class="section upload-assess-section" onclick="window.location.href='upload-assess.html'" style="cursor: pointer;">
-        <div class="section-icon">
-            <svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 100 10 L 170 30 L 170 120 Q 170 180 100 210 Q 30 180 30 120 L 30 30 Z" 
-                      fill="#4A2F1A" stroke="#B8860B" stroke-width="3"/>
-                <!-- Cloud/Upload -->
-                <path d="M 100 70 Q 85 70 80 80 Q 70 80 70 90 Q 70 100 80 100 L 120 100 Q 130 100 130 90 Q 130 80 120 80 Q 115 70 100 70" 
-                      fill="none" stroke="#F4ECD8" stroke-width="3"/>
-                <!-- Arrow -->
-                <line x1="100" y1="110" x2="100" y2="80" stroke="#F4ECD8" stroke-width="3"/>
-                <polygon points="100,75 95,82 105,82" fill="#F4ECD8"/>
-                <!-- Document -->
-                <rect x="80" y="120" width="40" height="30" rx="2" fill="none" stroke="#F4ECD8" stroke-width="2"/>
-                <line x1="87" y1="130" x2="113" y2="130" stroke="#F4ECD8" stroke-width="1.5"/>
-                <line x1="87" y1="138" x2="110" y2="138" stroke="#F4ECD8" stroke-width="1.5"/>
-            </svg>
-        </div>
-        <div class="section-header">
-            <p class="section-motto">Mens et Manus</p>
-            <h2>Upload & Assess</h2>
-            <div class="divider"></div>
-            <p>Submit your scholarly work for comprehensive analytical review. Receive detailed assessment, predicted grades, and personalized recommendations for academic improvement.</p>
-        </div>
-    </section>
-
-    <!-- Discussion Section - Oxbridge Brown -->
-    <section class="section discussion-section" onclick="window.location.href='discussion.html'" style="cursor: pointer;">
-        <div class="section-icon">
-            <svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 100 10 L 170 30 L 170 120 Q 170 180 100 210 Q 30 180 30 120 L 30 30 Z" 
-                      fill="#3E2723" stroke="#B8860B" stroke-width="3"/>
-                <!-- Speech scrolls -->
-                <ellipse cx="80" cy="80" rx="30" ry="20" fill="none" stroke="#F4ECD8" stroke-width="2"/>
-                <polygon points="65,95 58,108 75,98" fill="#F4ECD8"/>
-                <ellipse cx="120" cy="110" rx="30" ry="20" fill="none" stroke="#F4ECD8" stroke-width="2"/>
-                <polygon points="135,125 142,138 125,128" fill="#F4ECD8"/>
-                <!-- Laurel wreath -->
-                <path d="M 70 140 Q 75 150 85 145" fill="none" stroke="#B8860B" stroke-width="2"/>
-                <path d="M 130 140 Q 125 150 115 145" fill="none" stroke="#B8860B" stroke-width="2"/>
-            </svg>
-        </div>
-        <div class="section-header">
-            <p class="section-motto">In Colloquio Veritas</p>
-            <h2>Discussion</h2>
-            <div class="divider"></div>
-            <p>Engage in intellectual discourse with fellow scholars and distinguished faculty. Exchange insights, pose questions, and participate in the time-honored tradition of academic dialogue.</p>
-        </div>
-    </section>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>Exam Technique Excellence &copy; 2026 | Built for Economics Students</p>
+    </footer>
 
     <script>
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px'
-        };
+        // Setup form handling
+        document.getElementById('level').addEventListener('change', checkSetup);
+        document.getElementById('examBoard').addEventListener('change', checkSetup);
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all section headers and icons
-        document.querySelectorAll('.section-header, .section-icon').forEach(el => {
-            observer.observe(el);
-        });
+        function checkSetup() {
+            const level = document.getElementById('level').value;
+            const examBoard = document.getElementById('examBoard').value;
+            
+            if (level && examBoard) {
+                // Smooth scroll to features
+                document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
     </script>
 </body>
 </html>

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exam Technique - Exam Technique Excellence</title>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <title>Exam Technique | Exam Technique Excellence</title>
     
     <style>
         * {
@@ -14,170 +13,155 @@
         }
 
         body {
-            font-family: 'Patrick Hand', cursive;
-            background: linear-gradient(135deg, #FF6B35 0%, #FF8C61 100%);
-            min-height: 100vh;
-            padding: 20px;
+            font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #606c71;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Header */
         .page-header {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            color: #fff;
             text-align: center;
+            background-image: linear-gradient(120deg, #155799, #159957);
+            padding: 3rem 4rem;
         }
 
-        .page-header h1 {
-            font-family: 'Caveat', cursive;
-            font-size: 56px;
-            font-weight: 700;
-            color: #FF6B35;
-            margin-bottom: 20px;
+        .project-name {
+            margin-top: 0;
+            margin-bottom: 0.1rem;
+            font-size: 2.5rem;
+            font-weight: normal;
         }
 
-        .page-description {
-            font-size: 22px;
-            color: #555;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
+        .project-tagline {
+            margin-bottom: 2rem;
+            font-weight: normal;
+            opacity: 0.7;
+            font-size: 1.1rem;
         }
 
-        /* Navigation back to home */
-        .back-home {
+        .btn {
             display: inline-block;
-            margin-bottom: 20px;
-            padding: 12px 25px;
-            background: white;
-            color: #FF6B35;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 0.3rem;
+            transition: all 0.2s;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
             text-decoration: none;
-            border-radius: 25px;
-            font-size: 20px;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
         }
 
-        .back-home:hover {
-            background: #2C3E50;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        .btn:hover {
+            color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
-        /* Content sections */
-        .content-section {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        .main-content {
+            max-width: 64rem;
+            padding: 2rem 4rem;
+            margin: 0 auto;
+            font-size: 1.1rem;
         }
 
-        .content-section h2 {
-            font-family: 'Caveat', cursive;
-            font-size: 42px;
-            color: #FF6B35;
-            margin-bottom: 25px;
+        .main-content h1,
+        .main-content h2,
+        .main-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+            color: #159957;
         }
 
-        /* Skill cards */
+        .main-content h1 {
+            font-size: 2.25rem;
+        }
+
+        .main-content h2 {
+            font-size: 1.75rem;
+        }
+
+        .main-content h3 {
+            font-size: 1.25rem;
+        }
+
+        .main-content p {
+            margin-bottom: 1em;
+        }
+
         .skill-card {
-            background: #FFF8F0;
-            border-left: 5px solid #FF6B35;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.1);
+            background: #f3f6fa;
+            border: 1px solid #d1dce5;
+            border-left: 4px solid #159957;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0.3rem;
         }
 
         .skill-card h3 {
-            font-family: 'Caveat', cursive;
-            font-size: 32px;
-            color: #FF6B35;
-            margin-bottom: 15px;
-        }
-
-        .skill-card p {
-            font-size: 20px;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 15px;
+            margin-top: 0;
+            color: #159957;
+            font-weight: 600;
         }
 
         .skill-card ul {
-            list-style: none;
-            padding-left: 0;
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
         }
 
         .skill-card li {
-            font-size: 19px;
-            color: #555;
-            line-height: 1.8;
-            padding-left: 30px;
-            position: relative;
-            margin-bottom: 10px;
+            margin-bottom: 0.5rem;
         }
 
-        .skill-card li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #FF6B35;
-            font-weight: bold;
-            font-size: 22px;
-        }
-
-        /* Badge styles */
         .badge {
             display: inline-block;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 16px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 10px;
-            font-family: 'Patrick Hand', cursive;
+            border-radius: 0.3rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .badge.beginner {
-            background: #FFE5D9;
-            color: #C62828;
+            background: #d4edda;
+            color: #155724;
         }
 
         .badge.intermediate {
-            background: #FFF3E0;
-            color: #E65100;
+            background: #fff3cd;
+            color: #856404;
         }
 
         .badge.advanced {
-            background: #E8F5E9;
-            color: #2E7D32;
+            background: #cce5ff;
+            color: #004085;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .page-header h1 {
-                font-size: 42px;
+        @media screen and (max-width: 64em) {
+            .page-header {
+                padding: 2rem 2rem;
             }
-
-            .page-description {
-                font-size: 18px;
+            .main-content {
+                padding: 2rem 2rem;
             }
+        }
 
-            .skill-card h3 {
-                font-size: 26px;
+        @media screen and (max-width: 42em) {
+            .page-header {
+                padding: 1.5rem 1rem;
             }
-
-            .skill-card p, .skill-card li {
-                font-size: 17px;
+            .project-name {
+                font-size: 1.75rem;
+            }
+            .main-content {
+                padding: 2rem 1rem;
+                font-size: 1rem;
             }
         }
     </style>
@@ -185,26 +169,22 @@
     <script src="content.js"></script>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-home">← Back to Home</a>
+    <header class="page-header">
+        <h1 class="project-name">Exam Technique</h1>
+        <h2 class="project-tagline">Master the strategies that examiners look for in top-scoring answers</h2>
+        <a href="index.html" class="btn">← Back to Home</a>
+    </header>
 
-        <div class="page-header">
-            <h1>Exam Technique</h1>
-            <p class="page-description">
-                Master the essential strategies that examiners look for in top-scoring answers. Learn how to interpret command words, structure your responses, and maximize your marks in every question. These techniques are the foundation of exam success.
-            </p>
+    <main class="main-content">
+        <h2>Essential Skills for Exam Success</h2>
+        <p>Master these fundamental techniques to maximize your marks in every Economics examination. These strategies are based on what examiners actively look for when marking papers.</p>
+        
+        <div id="skillsContainer">
+            <!-- Content loaded dynamically from content.js -->
         </div>
-
-        <div class="content-section">
-            <h2>Essential Skills for Exam Success</h2>
-            <div id="skillsContainer">
-                <!-- Content loaded dynamically from content.js -->
-            </div>
-        </div>
-    </div>
+    </main>
 
     <script>
-        // Load skills from content.js
         function loadSkills() {
             const container = document.getElementById('skillsContainer');
             
@@ -230,7 +210,6 @@
             }
         }
 
-        // Load content when page loads
         document.addEventListener('DOMContentLoaded', loadSkills);
     </script>
 </body>
