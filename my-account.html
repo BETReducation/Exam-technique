@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | Exam Technique Excellence</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+    
+    <!-- Central CSS File -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Additional styles specific to My Account page */
+        .account-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .profile-header {
+            background: #f3f6fa;
+            border: 1px solid #d1dce5;
+            border-radius: 0.3rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .profile-image-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #159957;
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;
+            background: #e0e0e0;
+        }
+
+        .upload-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: #159957;
+            color: white;
+            border: none;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .upload-btn:hover {
+            background: #128f4e;
+        }
+
+        .account-section {
+            background: white;
+            border: 1px solid #d1dce5;
+            border-radius: 0.3rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .account-section h3 {
+            color: #159957;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #f3f6fa;
+            padding-bottom: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #159957;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1dce5;
+            border-radius: 0.3rem;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #159957;
+            box-shadow: 0 0 0 3px rgba(21, 153, 87, 0.1);
+        }
+
+        .form-group input[readonly] {
+            background: #f3f6fa;
+            cursor: not-allowed;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .subscription-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 0.3rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .subscription-badge.free {
+            background: #e0e0e0;
+            color: #666;
+        }
+
+        .subscription-badge.basic {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .subscription-badge.premium {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .subscription-badge.pro {
+            background: linear-gradient(120deg, #155799, #159957);
+            color: white;
+        }
+
+        .account-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .save-button {
+            background: #159957;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 0.3rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .save-button:hover {
+            background: #128f4e;
+        }
+
+        .cancel-button {
+            background: transparent;
+            color: #606c71;
+            border: 1px solid #d1dce5;
+            padding: 0.75rem 2rem;
+            border-radius: 0.3rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .cancel-button:hover {
+            background: #f3f6fa;
+        }
+
+        .info-text {
+            font-size: 0.9rem;
+            color: #819198;
+            margin-top: 0.5rem;
+        }
+
+        @media screen and (max-width: 42em) {
+            .account-actions {
+                flex-direction: column;
+            }
+
+            .save-button,
+            .cancel-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1 class="project-name">My Account</h1>
+        <h2 class="project-tagline">Manage your profile and account settings</h2>
+        
+        <!-- Discreet Navigation Menu -->
+        <nav class="nav-menu">
+            <div class="nav-menu-inner">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="key-concepts.html">Key Concepts</a>
+                <a href="exam-technique.html">Exam Technique</a>
+                <a href="exam-practice.html">Practice</a>
+                <a href="marking-practice.html">Marking</a>
+                <a href="progress-tracker.html">Progress</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="account-container">
+            
+            <!-- Profile Header with Image -->
+            <div class="profile-header">
+                <div class="profile-image-container">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 150'%3E%3Ccircle cx='75' cy='75' r='75' fill='%23159957'/%3E%3Ctext x='75' y='90' font-family='Arial' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" 
+                         alt="Profile Picture" 
+                         class="profile-image"
+                         id="profileImage">
+                </div>
+                <button class="upload-btn" onclick="uploadProfileImage()">📷 Change Photo</button>
+                <input type="file" id="imageUpload" accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
+            </div>
+
+            <!-- Personal Information Section -->
+            <div class="account-section">
+                <h3>Personal Information</h3>
+                
+                <div class="form-group">
+                    <label for="profileName">Name</label>
+                    <input type="text" id="profileName" value="Student Name" placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="profileEmail">Email Address</label>
+                    <input type="email" id="profileEmail" value="student@example.com" placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="accountNumber">Account Number</label>
+                    <input type="text" id="accountNumber" value="ETE-2026-001234" readonly>
+                    <p class="info-text">Your unique account identifier</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="alias">Alias / Display Name</label>
+                    <input type="text" id="alias" value="" placeholder="How you'd like to appear in discussions">
+                    <p class="info-text">This name will be shown in discussion forums and public areas</p>
+                </div>
+            </div>
+
+            <!-- Bio Section -->
+            <div class="account-section">
+                <h3>About Me</h3>
+                
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <textarea id="bio" placeholder="Tell us about yourself, your goals, exam boards, subjects..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Bio Visibility</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="bioPrivate" name="bioVisibility" value="private" checked>
+                            <label for="bioPrivate" style="margin: 0; font-weight: normal;">🔒 Private (Only you can see)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="bioPublic" name="bioVisibility" value="public">
+                            <label for="bioPublic" style="margin: 0; font-weight: normal;">🌐 Public (Visible to others)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subscription Section -->
+            <div class="account-section">
+                <h3>Subscription & Access Level</h3>
+                
+                <div class="form-group">
+                    <label>Current Plan</label>
+                    <div>
+                        <span class="subscription-badge pro">PRO PLAN</span>
+                        <p class="info-text" style="margin-top: 1rem;">
+                            ✅ Access to all Key Concepts<br>
+                            ✅ Unlimited Exam Practice<br>
+                            ✅ AI-Powered Assessment<br>
+                            ✅ Progress Tracking<br>
+                            ✅ Discussion Forums<br>
+                            ✅ Priority Support
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Subscription Status</label>
+                    <p style="color: #159957; font-weight: 600;">Active - Renews March 23, 2026</p>
+                </div>
+
+                <button class="upload-btn" onclick="manageSubscription()">Manage Subscription</button>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="account-actions">
+                <button class="save-button" onclick="saveChanges()">Save Changes</button>
+                <button class="cancel-button" onclick="cancelChanges()">Cancel</button>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>Exam Technique Excellence &copy; 2026 | Built for A-Level Economics Students</p>
+    </footer>
+
+    <script>
+        function uploadProfileImage() {
+            document.getElementById('imageUpload').click();
+        }
+
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profileImage').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function saveChanges() {
+            const name = document.getElementById('profileName').value;
+            const email = document.getElementById('profileEmail').value;
+            const alias = document.getElementById('alias').value;
+            const bio = document.getElementById('bio').value;
+            const bioVisibility = document.querySelector('input[name="bioVisibility"]:checked').value;
+
+            alert(`Account Updated! ✅\n\nName: ${name}\nEmail: ${email}\nAlias: ${alias || 'Not set'}\nBio: ${bio ? 'Set' : 'Not set'}\nBio Visibility: ${bioVisibility}`);
+        }
+
+        function cancelChanges() {
+            if (confirm('Discard all changes?')) {
+                location.reload();
+            }
+        }
+
+        function manageSubscription() {
+            alert('Subscription Management\n\nYou can:\n• Upgrade/Downgrade your plan\n• Update payment method\n• View billing history\n• Cancel subscription\n\nThis would typically redirect to a billing portal.');
+        }
+    </script>
+</body>
+</html>
